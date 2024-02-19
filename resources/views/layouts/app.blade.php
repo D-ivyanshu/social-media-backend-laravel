@@ -17,56 +17,9 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 </head>
-<body>
+<body class="bg-gray-200 text-font-800 antialised font-sans">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div>
-                <a href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button type="button">
-                    Toggle Navigation
-                </button>
-            
-                <div>
-                    <!-- Left Side Of Navbar -->
-                    <ul>
-            
-                    </ul>
-            
-                    <!-- Right Side Of Navbar -->
-                    <ul>
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li>
-                                    <a href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-            
-                            @if (Route::has('register'))
-                                <li>
-                                    <a href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li>
-                                {{ Auth::user()->name }}
-                            </li>
-                            <li>
-                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                                    @csrf
-                                </form>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>            
-        </nav>
-        <main class="py-4">
+        <main class="h-screen">
             @yield('content')
         </main>
     </div>
